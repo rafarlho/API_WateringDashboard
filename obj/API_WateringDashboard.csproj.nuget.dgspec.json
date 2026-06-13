@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/rafarlho/WateringDashboard/teste/API_WateringDashboard/API_WateringDashboard/API_WateringDashboard.csproj": {}
+    "/home/rafarlho/WateringDashboard/API_WateringDashboard/API_WateringDashboard.csproj": {}
   },
   "projects": {
-    "/home/rafarlho/WateringDashboard/teste/API_WateringDashboard/API_WateringDashboard/API_WateringDashboard.csproj": {
+    "/home/rafarlho/WateringDashboard/API_WateringDashboard/API_WateringDashboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/rafarlho/WateringDashboard/teste/API_WateringDashboard/API_WateringDashboard/API_WateringDashboard.csproj",
+        "projectUniqueName": "/home/rafarlho/WateringDashboard/API_WateringDashboard/API_WateringDashboard.csproj",
         "projectName": "API_WateringDashboard",
-        "projectPath": "/home/rafarlho/WateringDashboard/teste/API_WateringDashboard/API_WateringDashboard/API_WateringDashboard.csproj",
+        "projectPath": "/home/rafarlho/WateringDashboard/API_WateringDashboard/API_WateringDashboard.csproj",
         "packagesPath": "/home/rafarlho/.nuget/packages/",
-        "outputPath": "/home/rafarlho/WateringDashboard/teste/API_WateringDashboard/API_WateringDashboard/obj/",
+        "outputPath": "/home/rafarlho/WateringDashboard/API_WateringDashboard/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/rafarlho/.nuget/NuGet/NuGet.Config"
@@ -46,9 +46,17 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
+            "MQTTnet": {
+              "target": "Package",
+              "version": "[5.1.0.1559, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[10.0.9, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[10.0.2, )"
             }
           },
           "imports": [

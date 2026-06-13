@@ -1,11 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "gJ1Zkav0Pjg=",
+  "dgSpecHash": "vGd/YoMVGT4=",
   "success": true,
-  "projectFilePath": "/home/rafarlho/WateringDashboard/teste/API_WateringDashboard/API_WateringDashboard/API_WateringDashboard.csproj",
+  "projectFilePath": "/home/rafarlho/WateringDashboard/API_WateringDashboard/API_WateringDashboard.csproj",
   "expectedPackageFiles": [
     "/home/rafarlho/.nuget/packages/microsoft.aspnetcore.openapi/10.0.9/microsoft.aspnetcore.openapi.10.0.9.nupkg.sha512",
-    "/home/rafarlho/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+    "/home/rafarlho/.nuget/packages/microsoft.entityframeworkcore/10.0.4/microsoft.entityframeworkcore.10.0.4.nupkg.sha512",
+    "/home/rafarlho/.nuget/packages/microsoft.entityframeworkcore.abstractions/10.0.4/microsoft.entityframeworkcore.abstractions.10.0.4.nupkg.sha512",
+    "/home/rafarlho/.nuget/packages/microsoft.entityframeworkcore.analyzers/10.0.4/microsoft.entityframeworkcore.analyzers.10.0.4.nupkg.sha512",
+    "/home/rafarlho/.nuget/packages/microsoft.entityframeworkcore.relational/10.0.4/microsoft.entityframeworkcore.relational.10.0.4.nupkg.sha512",
+    "/home/rafarlho/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512",
+    "/home/rafarlho/.nuget/packages/mqttnet/5.1.0.1559/mqttnet.5.1.0.1559.nupkg.sha512",
+    "/home/rafarlho/.nuget/packages/npgsql/10.0.3/npgsql.10.0.3.nupkg.sha512",
+    "/home/rafarlho/.nuget/packages/npgsql.entityframeworkcore.postgresql/10.0.2/npgsql.entityframeworkcore.postgresql.10.0.2.nupkg.sha512"
   ],
   "logs": []
 }
