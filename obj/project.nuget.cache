@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "gJ1Zkav0Pjg=",
+  "success": true,
+  "projectFilePath": "/home/rafarlho/WateringDashboard/teste/API_WateringDashboard/API_WateringDashboard/API_WateringDashboard.csproj",
+  "expectedPackageFiles": [
+    "/home/rafarlho/.nuget/packages/microsoft.aspnetcore.openapi/10.0.9/microsoft.aspnetcore.openapi.10.0.9.nupkg.sha512",
+    "/home/rafarlho/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
