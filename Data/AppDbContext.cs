@@ -15,7 +15,7 @@ public class AppDbContext : DbContext
         {
             entity.HasKey(e => new {e.Timestamp, e.Origin});
             entity.ToTable("readings"); 
-            entity.Property(e => e.Timestamp).HasColumnName("timestamp");
+            entity.Property(e => e.Timestamp).HasColumnName("ts");
             entity.Property(e => e.Origin).HasColumnName("origin");
             entity.Property(e => e.AirTemperature).HasColumnName("air_t");
             entity.Property(e => e.AirHumidity).HasColumnName("air_h");
