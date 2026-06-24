@@ -1,7 +1,9 @@
 ﻿using System.Text;
 using System.Text.Json;
 using API_WateringDashboard.Data;
+using API_WateringDashboard.Hubs;
 using API_WateringDashboard.Models;
+using Microsoft.AspNetCore.SignalR;
 using MQTTnet;
 
 namespace API_WateringDashboard.Services;
@@ -12,15 +14,18 @@ public class MqttWorkerService : BackgroundService
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly IConfiguration _config;
     private IMqttClient? _mqttClient;
+    private readonly IHubContext<MqttHub> _hub;
 
     public MqttWorkerService(
         ILogger<MqttWorkerService> logger,
         IServiceScopeFactory scopeFactory,
+        IHubContext<MqttHub> hub,
         IConfiguration config)
     {
         _logger = logger;
         _scopeFactory = scopeFactory;
         _config = config;
+        _hub = hub;
     }
 
     protected async override Task ExecuteAsync(CancellationToken stoppingToken)
@@ -46,12 +51,20 @@ public class MqttWorkerService : BackgroundService
             {
                 var data = JsonSerializer.Deserialize<JsonElement>(payload);
 
-                 var actionType = data.TryGetProperty("type", out var t) ? t.GetString() : "";
+                var actionType = data.TryGetProperty("type", out var t) ? t.GetString() : "";
                 var origin = data.TryGetProperty("origin", out var o) ? o.GetString() ?? "UNKNOWN" : "UNKNOWN";
 
                 if (actionType == "keep_alive")
                 {
                     _logger.LogInformation("{Origin} is alive", origin);
+                    await _hub.Clients.All.SendAsync("ReceivedAlive", origin);
+                    return;
+                }
+
+                if(actionType == "status") {
+                    var status = data.TryGetProperty("status", out var st) ? st.GetString() ?? "UNKNOWN" : "UNKNOWN"; 
+                    _logger.LogInformation("{Origin} status is {Status}", origin,status);
+                    await _hub.Clients.All.SendAsync("ReceivedStatus", new{ origin, status});
                     return;
                 }
                 var reading = new Reading
@@ -65,6 +78,7 @@ public class MqttWorkerService : BackgroundService
                 };
 
                 await SaveReadingAsync(reading);
+                await _hub.Clients.All.SendAsync("ReceiveReading", reading);
 
                 _logger.LogInformation(
                     "{Origin} | Temp: {T}°C | Hum_Ar: {H}% | Solo: {S}% | Status: {St}",
